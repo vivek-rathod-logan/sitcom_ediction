@@ -412,26 +412,7 @@
         });
     </script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const iframe = document.getElementById('video-frame');
-        
-        if (iframe) {
-            iframe.onload = function () {
-                const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
     
-                // Ensure PiP only on compatible browsers
-                if ('requestPictureInPicture' in iframe) {
-                    iframeWindow.addEventListener('click', function () {
-                        if (document.pictureInPictureEnabled) {
-                            iframe.requestPictureInPicture().catch(error => {
-                                console.error('Error entering Picture-in-Picture:', error);
-                            });
-                        }
-                    });
-                }
-            };
-        }
-    });
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
