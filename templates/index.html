@@ -305,6 +305,41 @@
         </div>
     </header>
 
+    <p class="instruction">
+        <i class="fas fa-exclamation-circle"></i> Having trouble playing the video? 
+        <a href="javascript:location.reload();">Reload the page</a>.
+    </p>
+    
+    <style>
+        .instruction {
+            text-align: center;
+            background: #282828; /* YouTube-like dark background */
+            color: #fff;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 4px;
+            max-width: 90%;
+            margin: 10px auto;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .instruction i {
+            color: #ffcc00; /* YouTube-like warning icon color */
+            margin-right: 6px;
+        }
+    
+        .instruction a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    
+        .instruction a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <div class="main-container">
         <form method="GET" id="series-form">
                 <aside class="sidebar" id="sidebar">
@@ -361,6 +396,39 @@
                         <input type="checkbox" name="series" value="big-bang-theory" id="big-bang-theory" onchange="this.form.submit();">
                         <label for="big-bang-theory">Big Bang Theory</label>
                     </div>
+                    <hr>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="dexters-laboratory" id="dexters-laboratory" onchange="this.form.submit();">
+                        <label for="dexters-laboratory">Dexter's Laboratory</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="johnny-bravo" id="johnny-bravo" onchange="this.form.submit();">
+                        <label for="johnny-bravo">Johnny Bravo</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="cow-and-chicken" id="cow-and-chicken" onchange="this.form.submit();">
+                        <label for="cow-and-chicken">Cow and Chicken</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="ed-edd-n-eddy" id="ed-edd-n-eddy" onchange="this.form.submit();">
+                        <label for="ed-edd-n-eddy">Ed, Edd n Eddy</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="courage-the-cowardly-dog" id="courage-the-cowardly-dog" onchange="this.form.submit();">
+                        <label for="courage-the-cowardly-dog">Courage the Cowardly Dog</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="grim-adventures-billy-mandy" id="grim-adventures-billy-mandy" onchange="this.form.submit();">
+                        <label for="grim-adventures-billy-mandy">The Grim Adventures of Billy & Mandy</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="codename-kids-next-door" id="codename-kids-next-door" onchange="this.form.submit();">
+                        <label for="codename-kids-next-door">Codename: Kids Next Door</label>
+                    </div>
+                    <div class="checkbox-label">
+                        <input type="checkbox" name="series" value="spongebob-squarepants" id="spongebob-squarepants" onchange="this.form.submit();">
+                        <label for="spongebob-squarepants">SpongeBob SquarePants</label>
+                    </div>
                 </aside>
         </form>
 
@@ -415,6 +483,28 @@
     
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const iframes = document.querySelectorAll('iframe');
+        
+            iframes.forEach(iframe => {
+                iframe.onload = function () {
+                    try {
+                        const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
+        
+                        // Only apply popup blocking if NOT an iPhone
+                        if (!navigator.userAgent.includes("iPhone")) {
+                            iframeWindow.open = function () {
+                                console.log("Popup attempt blocked.");
+                                return null; // Prevent popups from opening
+                            };
+                        }
+                    } catch (error) {
+                        console.warn("Could not access iframe content:", error);
+                    }
+                };
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             const iframes = document.querySelectorAll('iframe');
             iframes.forEach(iframe => {

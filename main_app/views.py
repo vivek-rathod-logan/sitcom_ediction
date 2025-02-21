@@ -28,7 +28,15 @@ def index(request):
         "the-office": "tt0386676",
         "how-i-met-your-mother": "tt0460649",
         "mr-bean": "tt0096657",
-        "big-bang-theory": "tt0898266"
+        "big-bang-theory": "tt0898266",
+        "dexters-laboratory": "tt0115157",
+        "johnny-bravo": "tt0118360",
+        "cow-and-chicken": "tt0118289",
+        "ed-edd-n-eddy": "tt0131636",
+        "courage-the-cowardly-dog": "tt0220880",
+        "grim-adventures-billy-mandy": "tt0292800",
+        "codename-kids-next-door": "tt0312109",
+        "spongebob-squarepants": "tt0206512"
     }
 
     # Define the number of episodes for each season for each series
@@ -46,6 +54,14 @@ def index(request):
         "how-i-met-your-mother": {season: 22 for season in range(1, 10)},
         "mr-bean": {1: 14, 2: 13},
         "big-bang-theory": {season: 24 for season in range(1, 13)},
+        "dexters-laboratory": {1: 13, 2: 39, 3: 13, 4: 13},
+        "johnny-bravo": {1: 13, 2: 22, 3: 13, 4: 24},
+        "cow-and-chicken": {1: 13, 2: 13, 3: 13, 4: 13},
+        "ed-edd-n-eddy": {1: 13, 2: 13, 3: 25, 4: 24, 5: 22},
+        "courage-the-cowardly-dog": {1: 13, 2: 13, 3: 13, 4: 13},
+        "grim-adventures-billy-mandy": {1: 18, 2: 13, 3: 14, 4: 13, 5: 12, 6: 11},
+        "codename-kids-next-door": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 13},
+        "spongebob-squarepants": {season: 20 for season in range(1, 14)}
     }
 
     # Default selected series
@@ -76,7 +92,7 @@ def index(request):
     
     user_agent = parse(request.META['HTTP_USER_AGENT'])
     is_iphone = 'iPhone' in request.META['HTTP_USER_AGENT']  # Check if 'iPhone' is in the user agent string
-    sandbox_attr = "allow-same-origin allow-scripts" if is_iphone else "Empty"
+    sandbox_attr = "allow-same-origin allow-scripts" if is_iphone else None
     context = {
         'videourl': selected_videos,  # Send the 12 random URLs to the template,
         'sandbox_attr': sandbox_attr,
