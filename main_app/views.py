@@ -13,6 +13,26 @@ import random
 from user_agents import parse
 
 def index(request):
+
+    #--------------- GLOBAL VARIABLE -----------
+    ismoviesearched = "no"
+    searchedmovieurl = ""
+    #-------------------------------------------
+
+    search_text = request.GET.get('searchtext', '')  # Get search text if available, otherwise default to empty string
+    if search_text:  # Check if text is available
+        API_KEY = "1feb329b"  # Your OMDb API key
+        url = f"http://www.omdbapi.com/?t={search_text}&apikey={API_KEY}"
+        response = requests.get(url)
+        data = response.json()
+
+        if data.get("Response") == "True":
+            imdbid = data.get("imdbID", "IMDb ID not found")
+            ismoviesearched = "yes"
+            searchedmovieurl = f"https://vidsrc.xyz/embed/movie/{imdbid}"
+        else:
+            pass
+
     # Define the base URL and IMDb IDs for all shows
     base_url = "https://vidsrc.xyz/embed/tv"
     series_ids = {
@@ -96,12 +116,14 @@ def index(request):
     context = {
         'videourl': selected_videos,  # Send the 12 random URLs to the template,
         'sandbox_attr': sandbox_attr,
+        'ismoviesearched': ismoviesearched,
+        'searchedmovieurl': searchedmovieurl
     }
     return render(request, 'index.html', context)
 
 def watchvideo(request, videourl, sandbox_attr):
     context = {
        'videourl': videourl,  # Send the 12 random URLs to the template,
-        'sandbox_attr': sandbox_attr if sandbox_attr != "Empty" else "",
+       'sandbox_attr': sandbox_attr if sandbox_attr != "Empty" else "",
     }
     return render(request, 'watchvideo.html', context)
