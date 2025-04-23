@@ -56,7 +56,8 @@ def index(request):
         "courage-the-cowardly-dog": "tt0220880",
         "grim-adventures-billy-mandy": "tt0292800",
         "codename-kids-next-door": "tt0312109",
-        "spongebob-squarepants": "tt0206512"
+        "spongebob-squarepants": "tt0206512",
+        "tom-and-jerry": "tt0038201",
     }
 
     # Define the number of episodes for each season for each series
@@ -81,7 +82,8 @@ def index(request):
         "courage-the-cowardly-dog": {1: 13, 2: 13, 3: 13, 4: 13},
         "grim-adventures-billy-mandy": {1: 18, 2: 13, 3: 14, 4: 13, 5: 12, 6: 11},
         "codename-kids-next-door": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 13},
-        "spongebob-squarepants": {season: 20 for season in range(1, 14)}
+        "spongebob-squarepants": {season: 20 for season in range(1, 14)},
+        "tom-and-jerry": {1: 114}, 
     }
 
     # Default selected series
