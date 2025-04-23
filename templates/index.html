@@ -246,6 +246,8 @@
                 top: 0; /* Align to top */
                 left: 0; /* Align to left */
                 z-index: 1000; /* Ensure it sits above other content */
+                overflow-y: auto; /* Allow vertical scrolling */
+                max-height: 100vh; /* Prevent it from going beyond screen height */
             }
             .sidebar.active {
                 transform: translateX(0); /* Show sidebar on toggle */
@@ -402,7 +404,7 @@
         <form method="GET" id="series-form">
                 <aside class="sidebar" id="sidebar">
                     <div class="search-bar checkbox-label">
-                        <input type="text" name="searchtext" placeholder="Search...">
+                        <input type="text" name="searchtext" placeholder="Search movie...">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </div>
                     <div class="checkbox-label">
@@ -492,16 +494,13 @@
                         <label for="spongebob-squarepants">SpongeBob SquarePants</label>
                     </div>
                     <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="tom-and-jerry" id="tom-and-jerry" onchange="this.form.submit();">
-                        <label for="tom-and-jerry">Tom & Jerry Classic</label>
+                        <input type="checkbox" name="series" value="spongebob-squarepants" id="spongebob-squarepants" onchange="this.form.submit();">
+                        <label for="spongebob-squarepants">SpongeBob SquarePants</label>
                     </div>
-                    <hr>
                     <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="taarak-mehta" id="taarak-mehta" onchange="this.form.submit();">
-                        <label for="taarak-mehta">Taarak mehta ka ooultah chashma</label>
+                        <input type="checkbox" name="series" value="tom-and-jerry" id="tom-and-jerry" onchange="this.form.submit();">
+                        <label for="tom-and-jerry">Tom and Jerry Tales</label>
                     </div>
-                    <hr>
-                    
                 </aside>
         </form>
 

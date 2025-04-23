@@ -57,8 +57,7 @@ def index(request):
         "grim-adventures-billy-mandy": "tt0292800",
         "codename-kids-next-door": "tt0312109",
         "spongebob-squarepants": "tt0206512",
-        "tom-and-jerry": "tt0130417",
-        "taarak-mehta": "tt1708446",
+        "tom-and-jerry": "tt0780438",
     }
 
     # Define the number of episodes for each season for each series
@@ -85,7 +84,6 @@ def index(request):
         "codename-kids-next-door": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 13},
         "spongebob-squarepants": {season: 20 for season in range(1, 14)},
         "tom-and-jerry": {1: 114}, 
-        "taarak-mehta": {1: 100}, 
     }
 
     # Default selected series
