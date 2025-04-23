@@ -57,7 +57,7 @@ def index(request):
         "grim-adventures-billy-mandy": "tt0292800",
         "codename-kids-next-door": "tt0312109",
         "spongebob-squarepants": "tt0206512",
-        "tom-and-jerry": "tt0038201",
+        "tom-and-jerry": "tt0130417",
     }
 
     # Define the number of episodes for each season for each series
