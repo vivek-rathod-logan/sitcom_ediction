@@ -23,16 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(ca+vctej9&&%zj_^%1=rw2wlw9t!s3)5cc%6i8%w^^05=7uga'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 #set false if its in local
-ENFORCE_SSL = False
+ENFORCE_SSL = True
 # Force HTTPS in production
-# SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
-# SESSION_COOKIE_SECURE = True  # Secure cookies
-# CSRF_COOKIE_SECURE = True  # Secure CSRF token
-# SECURE_HSTS_SECONDS = 31536000  # Enable HSTS for 1 year
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+SESSION_COOKIE_SECURE = True  # Secure cookies
+CSRF_COOKIE_SECURE = True  # Secure CSRF token
+SECURE_HSTS_SECONDS = 31536000  # Enable HSTS for 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 ALLOWED_HOSTS = ['*']
 

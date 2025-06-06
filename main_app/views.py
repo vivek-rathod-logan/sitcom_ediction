@@ -3,8 +3,33 @@ import requests
 import random
 from user_agents import parse
 from django.http import JsonResponse
+from .models import *
+from user_agents import parse
+
+
+def get_client_ip(request):
+    x_forwarded = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded:
+        return x_forwarded.split(',')[0]
+    return request.META.get('REMOTE_ADDR')
 
 def index(request):
+    ip = get_client_ip(request)
+    try:
+        country = g.country(ip)['country_name']
+    except:
+        country = "Unknown"
+
+    user_agent = request.META.get('HTTP_USER_AGENT', '')
+    device = parse(user_agent)
+    device_type = 'Mobile' if device.is_mobile else 'Tablet' if device.is_tablet else 'Desktop'
+
+    session_key = request.session.session_key or request.session.save() or request.session.session_key
+
+    # Save only if not already saved in this session
+    if not count_user.objects.filter(session_key=session_key).exists():
+        count_user.objects.create(ip=ip, country=country, device=device_type, session_key=session_key)
+
     #--------------- GLOBAL VARIABLE -----------
     ismoviesearched = "no"
     searchedmovieurl = ""
