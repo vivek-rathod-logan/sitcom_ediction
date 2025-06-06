@@ -27,14 +27,15 @@ DEBUG = True
 #set false if its in local
 ENFORCE_SSL = False
 # Force HTTPS in production
-SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
-SESSION_COOKIE_SECURE = True  # Secure cookies
-CSRF_COOKIE_SECURE = True  # Secure CSRF token
-SECURE_HSTS_SECONDS = 31536000  # Enable HSTS for 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+# SESSION_COOKIE_SECURE = True  # Secure cookies
+# CSRF_COOKIE_SECURE = True  # Secure CSRF token
+# SECURE_HSTS_SECONDS = 31536000  # Enable HSTS for 1 year
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
 
 ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main_app'
+    'main_app',
 ]
 
 MIDDLEWARE = [
@@ -84,20 +85,18 @@ WSGI_APPLICATION = 'sitcom_ediction.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-"""
+
 
 import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(default="postgresql://postgres:wCMuNetSwHMsyQTMsWUBflKmVbGFiabW@tramway.proxy.rlwy.net:45400/railway")
-}
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
