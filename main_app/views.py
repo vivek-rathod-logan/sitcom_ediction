@@ -2,17 +2,18 @@ from django.shortcuts import render
 import requests
 import random
 from user_agents import parse
+from django.http import JsonResponse
 
 def index(request):
     #--------------- GLOBAL VARIABLE -----------
     ismoviesearched = "no"
     searchedmovieurl = ""
     videourl = []
+    API_KEY = "1feb329b"
     #-------------------------------------------
 
     search_text = request.GET.get('searchtext', '')  # Get search text if available, otherwise default to empty string
     if search_text:
-        API_KEY = "1feb329b"
         url = f"http://www.omdbapi.com/?t={search_text}&apikey={API_KEY}"
         response = requests.get(url)
         data = response.json()
@@ -28,48 +29,28 @@ def index(request):
                 # Get the number of seasons from OMDb data
                 total_seasons = int(data.get("totalSeasons", 1))  # Default to 1 if not available
 
-                # Define the number of episodes per season for the searched series
-                # If the series is in season_episodes, use that; otherwise, assume a default number
-                season_episodes = {
-                    "south-park": {season: 14 for season in range(1, 26)},
-                    "american-dad": {season: 18 for season in range(1, 20)},
-                    "family-guy": {season: 21 for season in range(1, 22)},
-                    "rick-and-morty": {1: 11, 2: 10, 3: 10, 4: 10, 5: 10, 6: 10},
-                    "bojack-horseman": {1: 12, 2: 12, 3: 12, 4: 12, 5: 12, 6: 16},
-                    "the-simpsons": {season: 22 for season in range(1, 35)},
-                    "futurama": {1: 13, 2: 19, 3: 16, 4: 18, 5: 16, 6: 26, 7: 10},
-                    "bobs-burgers": {season: 20 for season in range(1, 14)},
-                    "friends": {season: 24 for season in range(1, 11)},
-                    "the-office": {season: 24 for season in range(1, 10)},
-                    "how-i-met-your-mother": {season: 22 for season in range(1, 10)},
-                    "mr-bean": {1: 14, 2: 13},
-                    "big-bang-theory": {season: 24 for season in range(1, 13)},
-                    "dexters-laboratory": {1: 13, 2: 39, 3: 13, 4: 13},
-                    "johnny-bravo": {1: 13, 2: 22, 3: 13, 4: 24},
-                    "cow-and-chicken": {1: 13, 2: 13, 3: 13, 4: 13},
-                    "ed-edd-n-eddy": {1: 13, 2: 13, 3: 25, 4: 24, 5: 22},
-                    "courage-the-cowardly-dog": {1: 13, 2: 13, 3: 13, 4: 13},
-                    "grim-adventures-billy-mandy": {1: 18, 2: 13, 3: 14, 4: 13, 5: 12, 6: 11},
-                    "codename-kids-next-door": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 13},
-                    "spongebob-squarepants": {season: 20 for season in range(1, 14)},
-                    "tom-and-jerry": {1: 114},
-                }
-
-                # Get episode counts for the searched series, or use a default
-                series_key = search_text.lower().replace(" ", "-")
-                episodes_per_season = season_episodes.get(series_key, {season: 10 for season in range(1, total_seasons + 1)})
+                # Fetch episode counts for each season dynamically
+                episodes_per_season = {}
+                for season in range(1, total_seasons + 1):
+                    season_url = f"http://www.omdbapi.com/?i={imdbid}&Season={season}&apikey={API_KEY}"
+                    season_response = requests.get(season_url)
+                    season_data = season_response.json()
+                    if season_data.get("Response") == "True":
+                        episodes = len(season_data.get("Episodes", []))
+                        episodes_per_season[season] = episodes
+                    else:
+                        episodes_per_season[season] = 10  # Fallback to 10 episodes if API call fails
 
                 # Collect all possible episode URLs
                 base_url = "https://vidsrc.xyz/embed/tv"
                 all_episodes = []
-                for season in range(1, total_seasons + 1):
-                    num_episodes = episodes_per_season.get(season, 12)  # Default to 10 episodes if not specified
+                for season, num_episodes in episodes_per_season.items():
                     for episode in range(1, num_episodes + 1):
                         video_url = f"{base_url}?imdb={imdbid}&season={season}&episode={episode}"
                         all_episodes.append(video_url)
 
                 # Select 10 random episodes (or fewer if there aren't enough episodes)
-                videourl = random.sample(all_episodes, min(12, len(all_episodes)))
+                videourl = random.sample(all_episodes, min(10, len(all_episodes)))
 
     # If no search, proceed with default or selected series
     if not search_text:
@@ -84,7 +65,7 @@ def index(request):
             "the-simpsons": "tt0096697",
             "futurama": "tt0149460",
             "bobs-burgers": "tt1561755",
-            "friends": "tt0108778",
+            "friends":"tt0108778",
             "the-office": "tt0386676",
             "how-i-met-your-mother": "tt0460649",
             "mr-bean": "tt0096657",
@@ -100,32 +81,6 @@ def index(request):
             "tom-and-jerry": "tt0780438",
         }
 
-        # Define the number of episodes for each season for each series
-        season_episodes = {
-            "south-park": {season: 14 for season in range(1, 26)},
-            "american-dad": {season: 18 for season in range(1, 20)},
-            "family-guy": {season: 21 for season in range(1, 22)},
-            "rick-and-morty": {1: 11, 2: 10, 3: 10, 4: 10, 5: 10, 6: 10},
-            "bojack-horseman": {1: 12, 2: 12, 3: 12, 4: 12, 5: 12, 6: 16},
-            "the-simpsons": {season: 22 for season in range(1, 35)},
-            "futurama": {1: 13, 2: 19, 3: 16, 4: 18, 5: 16, 6: 26, 7: 10},
-            "bobs-burgers": {season: 20 for season in range(1, 14)},
-            "friends": {season: 24 for season in range(1, 11)},
-            "the-office": {season: 24 for season in range(1, 10)},
-            "how-i-met-your-mother": {season: 22 for season in range(1, 10)},
-            "mr-bean": {1: 14, 2: 13},
-            "big-bang-theory": {season: 24 for season in range(1, 13)},
-            "dexters-laboratory": {1: 13, 2: 39, 3: 13, 4: 13},
-            "johnny-bravo": {1: 13, 2: 22, 3: 13, 4: 24},
-            "cow-and-chicken": {1: 13, 2: 13, 3: 13, 4: 13},
-            "ed-edd-n-eddy": {1: 13, 2: 13, 3: 25, 4: 24, 5: 22},
-            "courage-the-cowardly-dog": {1: 13, 2: 13, 3: 13, 4: 13},
-            "grim-adventures-billy-mandy": {1: 18, 2: 13, 3: 14, 4: 13, 5: 12, 6: 11},
-            "codename-kids-next-door": {1: 13, 2: 13, 3: 13, 4: 13, 5: 13, 6: 13},
-            "spongebob-squarepants": {season: 20 for season in range(1, 14)},
-            "tom-and-jerry": {1: 114},
-        }
-
         # Default selected series
         default_series = [
             "family-guy",
@@ -138,7 +93,26 @@ def index(request):
         for series in selected_series:
             imdb_id = series_ids.get(series)
             if imdb_id:  # Ensure the series exists in series_ids
-                for season, num_episodes in season_episodes.get(series, {}).items():
+                # Fetch total seasons for the series
+                series_url = f"http://www.omdbapi.com/?i={imdb_id}&apikey={API_KEY}"
+                series_response = requests.get(series_url)
+                series_data = series_response.json()
+                total_seasons = int(series_data.get("totalSeasons", 1)) if series_data.get("Response") == "True" else 1
+
+                # Fetch episode counts for each season
+                episodes_per_season = {}
+                for season in range(1, total_seasons + 1):
+                    season_url = f"http://www.omdbapi.com/?i={imdb_id}&Season={season}&apikey={API_KEY}"
+                    season_response = requests.get(season_url)
+                    season_data = season_response.json()
+                    if season_data.get("Response") == "True":
+                        episodes = len(season_data.get("Episodes", []))
+                        episodes_per_season[season] = episodes
+                    else:
+                        episodes_per_season[season] = 10  # Fallback to 10 episodes if API call fails
+
+                # Collect all episode URLs for the series
+                for season, num_episodes in episodes_per_season.items():
                     for episode in range(1, num_episodes + 1):
                         video_url = f"{base_url}?imdb={imdb_id}&season={season}&episode={episode}"
                         videourl.append(video_url)
