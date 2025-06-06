@@ -352,14 +352,25 @@
     }
 }
 
+
+
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo" id="logo" onclick="window.location.href='/'">SITCOM-ADDICTION</div>
-        <i class="fas fa-sync-alt refresh-icon" onclick="location.reload(); // This refreshes the page"></i>
-        <button id="installButton" class="install-button" style="display: none;">Install App</button>
+    
+        <div class="header-search">
+            <form method="GET" id="series-form">
+                <div class="search-bar">
+                    <input type="text" name="searchtext" placeholder="Search ...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    
+        <i class="fas fa-sync-alt refresh-icon" onclick="location.reload();"></i>
         <div class="hamburger" onclick="toggleSidebar()">
             <i class="fas fa-bars" style="color: white;"></i>
         </div>
@@ -368,6 +379,7 @@
     <p class="instruction">
         <i class="fas fa-exclamation-circle"></i> Having trouble playing the video? 
         <a href="javascript:location.reload();">Reload the page</a>.
+        <i class="fas fa-bullhorn"></i> Search any Anime, Movie, Series in the world.
     </p>
     
     <style>
@@ -403,10 +415,8 @@
     <div class="main-container">
         <form method="GET" id="series-form">
                 <aside class="sidebar" id="sidebar">
-                    <div class="search-bar checkbox-label">
-                        <input type="text" name="searchtext" placeholder="Search movie...">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </div>
+                    <button id="installButton" class="install-button" style="display: none;">Install App</button>
+                    <hr>
                     <div class="checkbox-label">
                         <input type="checkbox" name="series" value="south-park" id="south-park" onchange="this.form.submit();">
                         <label for="south-park">South Park</label>
@@ -740,5 +750,6 @@
         
             let audioContext;
             let gainNode;
-        </script>
+        })
+    </script>
         
