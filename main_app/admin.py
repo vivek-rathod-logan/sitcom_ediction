@@ -6,3 +6,5 @@ class CountUserAdmin(admin.ModelAdmin):
     search_fields = ('ip', 'country', 'device', 'session_key')
     list_filter = ('country', 'device', 'created_at')
     ordering = ('-created_at',)
+
+admin.site.register(Comment)

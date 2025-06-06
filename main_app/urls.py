@@ -4,5 +4,7 @@ from .views import *
 
 urlpatterns = [
     path('', index),
-    path('watch/<path:videourl>/<sandbox_attr>/', watchvideo, name="watchvideo"),
+    path('terms/', termspage, name="terms"),
+    path('post-comment/', post_comment, name='post_comment'),
+    #path('watch/<path:videourl>/<sandbox_attr>/', watchvideo, name="watchvideo"),
 ]

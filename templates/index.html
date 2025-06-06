@@ -4,14 +4,13 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>SITCOM-ADDICTION | Best Rendomized Sitcom Videos</title>
+    <title>SITCOM-ADDICTION | Best Randomized Sitcom Videos</title>
     <meta name="description" content="Watch random episodes of the best sitcoms like Friends, The Office, South Park, Family Guy, and more. Enjoy non-stop laughter with our free sitcom streaming!">
-    <meta name="keywords" content="random sitcom episodes, watch sitcoms online, Friends, The Office, South Park, Family Guy, Rick and Morty, BoJack Horseman, The Simpsons, Futurama, Bob's Burgers, Big Bang Theory, Mr. Bean, How I Met Your Mother, free sitcom streaming, comedy series online, random sitcom episodes, watch sitcoms online, free sitcom streaming, comedy series online, best sitcoms to watch, classic sitcoms, 90s sitcoms, animated sitcoms, adult cartoons, funny TV shows, comedy TV series, Friends full episodes, The Office streaming, South Park free, Family Guy watch online, Rick and Morty episodes, BoJack Horseman streaming, The Simpsons online, Futurama free, Bob's Burgers full episodes, Big Bang Theory streaming, Mr. Bean watch now, How I Met Your Mother episodes, best comedy series, binge-worthy sitcoms, watch funny shows online, sitcom lovers, instant sitcom streaming, TV comedy classics">
+    <meta name="keywords" content="random sitcom episodes, watch sitcoms online, Friends, The Office, South Park, Family Guy, Rick and Morty, BoJack Horseman, The Simpsons, Futurama, Bob's Burgers, Big Bang Theory, Mr. Bean, How I Met Your Mother, free sitcom streaming, comedy series online, best sitcoms to watch, classic sitcoms, 90s sitcoms, animated sitcoms, adult cartoons, funny TV shows, comedy TV series, Friends full episodes, The Office streaming, South Park free, Family Guy watch online, Rick and Morty episodes, BoJack Horseman streaming, The Simpsons online, Futurama free, Bob's Burgers full episodes, Big Bang Theory streaming, Mr. Bean watch now, How I Met Your Mother episodes, best comedy series, binge-worthy sitcoms, watch funny shows online, sitcom lovers, instant sitcom streaming, TV comedy classics">
     <meta name="author" content="Sitcom Addiction">
     <meta name="robots" content="index, follow">
 
@@ -26,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SITCOM-ADDICTION | Best Sitcom Videos & Clips">
     <meta name="twitter:description" content="Watch the best sitcoms like Friends, The Office, Family Guy, and more. Stream high-quality clips and enjoy endless comedy!">
-    <meta name="twitter:image" content="{% static 'images/thumbnail.jpg' %}">
+    <metaTema name="twitter:image" content="{% static 'images/thumbnail.jpg' %}">
 
     <!-- Canonical Tag (Avoid Duplicate Content Issues) -->
     <link rel="canonical" href="https://sitcom-addiction.com">
@@ -63,9 +62,6 @@
         }
     }
     </script>
-    <title>SITCOM-ADDICTION</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    <link rel="manifest" href="{% static 'manifest.json' %}"> <!-- Link to the manifest file -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,16 +70,16 @@
             padding: 0;
         }
         header {
-            background-color: #cc0000; /* YouTube-like red color */
+            background-color: #cc0000;
             padding: 10px 20px;
             display: flex;
             align-items: center;
-            border-bottom: 2px solid #ff0000; /* Slightly brighter red for the border */
+            border-bottom: 2px solid #ff0000;
         }
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: white; /* White text for contrast */
+            color: white;
             margin-right: auto;
         }
         .search-bar {
@@ -98,7 +94,7 @@
             border-radius: 5px;
         }
         .search-bar button {
-            background-color: #ff0000; /* Brighter red for the button */
+            background-color: #ff0000;
             color: white;
             border: none;
             padding: 10px 15px;
@@ -107,17 +103,17 @@
             cursor: pointer;
         }
         .search-bar button:hover {
-            background-color: #cc0000; /* Darker red on hover */
+            background-color: #cc0000;
         }
         footer {
-            background-color: #cc0000; /* YouTube-like red color */
+            background-color: #cc0000;
             padding: 20px;
             text-align: center;
-            border-top: 2px solid #ff0000; /* Slightly brighter red for the border */
-            color: white; /* White text for contrast */
+            border-top: 2px solid #ff0000;
+            color: white;
         }
         footer a {
-            color: #ddd; /* Lighter gray for footer links */
+            color: #ddd;
             margin: 0 10px;
             text-decoration: none;
         }
@@ -171,8 +167,6 @@
         .video-card .actions .button:hover {
             background-color: #cc0000;
         }
-
-        /* Responsive design for mobile screens */
         @media (max-width: 768px) {
             .video-card {
                 width: 100%;
@@ -191,66 +185,57 @@
         .main-container {
             display: flex;
         }
-        
         .sidebar {
-            width: 200px; /* Set width for the sidebar */
-            background-color: #f1f1f1; /* Background color */
+            width: 200px;
+            background-color: #f1f1f1;
             padding: 10px;
-            transition: transform 0.3s ease; /* Smooth transition */
-            transform: translateX(-100%); /* Hide sidebar off-screen */
-            position: relative; /* Position relative for the transform */
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            position: relative;
         }
-        
         .sidebar.active {
-            transform: translateX(0); /* Show sidebar */
+            transform: translateX(0);
         }
-        
         .sidebar ul {
             list-style-type: none;
             padding: 0;
         }
-        
         .sidebar ul li {
             margin: 10px 0;
         }
-        
         .sidebar ul li a {
             text-decoration: none;
-            color: #333; /* Link color */
+            color: #333;
             font-weight: bold;
         }
-        
         .sidebar ul li a:hover {
-            color: #cc0000; /* Change color on hover */
+            color: #cc0000;
         }
-        
         .container {
-            flex: 1; /* Allow the container to take the remaining space */
+            flex: 1;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
         }
-        
         .hamburger {
             cursor: pointer;
-            color: #333; /* Color for the hamburger icon */
+            color: #333;
             font-size: 24px;
-            margin-left: 10px; /* Spacing for the hamburger icon */
+            margin-left: 10px;
         }
-        
         @media (max-width: 768px) {
             .sidebar {
-                position: fixed; /* Fixed position for mobile */
-                height: 100%; /* Full height on mobile */
-                top: 0; /* Align to top */
-                left: 0; /* Align to left */
-                z-index: 1000; /* Ensure it sits above other content */
-                overflow-y: auto; /* Allow vertical scrolling */
-                max-height: 100vh; /* Prevent it from going beyond screen height */
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                overflow-y: auto;
+                max-height: 100vh;
             }
             .sidebar.active {
-                transform: translateX(0); /* Show sidebar on toggle */
+                transform: translateX(0);
             }
         }
         .checkbox-label {
@@ -259,108 +244,288 @@
             margin: 10px 0;
         }
         .refresh-icon {
-            margin-right: 10px; /* Space between text and icon */
+            margin-right: 10px;
             cursor: pointer;
             font-size: 1.2em;
-            color: white; /* Icon color */
+            color: white;
         }
-        /* Button Styles */
-.install-button {
-    background-color: #4CAF50; /* Green background */
-    border: none; /* No border */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding */
-    text-align: center; /* Centered text */
-    text-decoration: none; /* No underline */
-    display: inline-block; /* Inline block */
-    font-size: 16px; /* Font size */
-    margin: 4px 2px; /* Margin */
-    cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
-}
-
-/* Button Hover Effect */
-.install-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
-}
-
-/* Button Active Effect */
-.install-button:active {
-    transform: scale(0.95); /* Slightly shrink the button when clicked */
-}
-
-.video-card2 {
-    background-color: white;
-    width: 100%;
-    max-width: 100%;
-    margin: 15px auto; /* Centering the card */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.2s ease;
-}
-.video-card2:hover {
-    transform: scale(1.05);
-}
-.video-card2 iframe {
-    width: 100%;
-    height: 100%;
-}
-.video-card2 .title {
-    padding: 10px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.video-card2 .actions {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-.video-card2 .actions .button {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    text-align: center;
-}
-.video-card2 .actions .button:hover {
-    background-color: #cc0000;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .video-card2 {
-        width: 100%;
-    }
-}
-@media (min-width: 769px) and (max-width: 1200px) {
-    .video-card2 {
-        width: 60%;
-        height: 50%;
-    }
-}
-@media (min-width: 1201px) {
-    .video-card2 {
-        width: 60%;
-        height: 50%;
-    }
-}
-
-
-
+        .install-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .install-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .install-button:active {
+            transform: scale(0.95);
+        }
+        .video-card2 {
+            background-color: white;
+            width: 100%;
+            max-width: 100%;
+            margin: 15px auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        .video-card2:hover {
+            transform: scale(1.05);
+        }
+        .video-card2 iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .video-card2 .title {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .video-card2 .actions {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        .video-card2 .actions .button {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .video-card2 .actions .button:hover {
+            background-color: #cc0000;
+        }
+        @media (max-width: 768px) {
+            .video-card2 {
+                width: 100%;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .video-card2 {
+                width: 60%;
+                height: 50%;
+            }
+        }
+        @media (min-width: 1201px) {
+            .video-card2 {
+                width: 60%;
+                height: 50%;
+            }
+        }
+        .instruction {
+            text-align: center;
+            background: #282828;
+            color: #fff;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 4px;
+            max-width: 90%;
+            margin: 10px auto;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .instruction i {
+            color: #ffcc00;
+            margin-right: 6px;
+        }
+        .instruction a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .instruction a:hover {
+            text-decoration: underline;
+        }
+        /* Comment Icon Styles */
+        .comment-icon-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .comment-icon {
+            background-color: #ff0000;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .comment-icon:hover {
+            background-color: #cc0000;
+            transform: scale(1.1);
+        }
+        /* Comment Section Styles */
+        .comment-section {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .comment-section.active {
+            display: flex;
+        }
+        .comment-box {
+            background-color: white;
+            width: 100%;
+            max-width: 600px;
+            height: 70vh;
+            border-radius: 15px 15px 0 0;
+            overflow-y: auto;
+            padding: 20px;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .comment-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .comment-box-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .close-comment {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        .comment-list {
+            margin: 20px 0;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        .comment {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .comment.reply {
+            margin-left: 20px;
+            border-left: 2px solid #ff0000;
+        }
+        .comment-user {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+        }
+        .comment-text {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .comment-time {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+        .comment-actions {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+        .comment-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ff0000;
+        }
+        .comment-actions button:hover {
+            text-decoration: underline;
+        }
+        .comment-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            position: sticky;
+            bottom: 0;
+            background-color: white;
+        }
+        .comment-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+        }
+        .comment-submit {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .comment-submit:hover {
+            background-color: #cc0000;
+        }
+        .reply-input-container {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+        }
+        .reply-input-container.active {
+            display: flex;
+        }
+        @media (max-width: 768px) {
+            .comment-box {
+                height: 80vh;
+                border-radius: 0;
+            }
+            .comment-icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo" id="logo" onclick="window.location.href='/'">SITCOM-ADDICTION</div>
-    
         <div class="header-search">
             <form method="GET" id="series-form">
                 <div class="search-bar">
@@ -369,7 +534,6 @@
                 </div>
             </form>
         </div>
-    
         <i class="fas fa-sync-alt refresh-icon" onclick="location.reload();"></i>
         <div class="hamburger" onclick="toggleSidebar()">
             <i class="fas fa-bars" style="color: white;"></i>
@@ -381,218 +545,199 @@
         <a href="javascript:location.reload();">Reload the page</a>.
         <i class="fas fa-bullhorn"></i> Search any Anime, Movie, Series in the world.
     </p>
-    
-    <style>
-        .instruction {
-            text-align: center;
-            background: #282828; /* YouTube-like dark background */
-            color: #fff;
-            padding: 12px;
-            font-size: 14px;
-            font-weight: 500;
-            border-radius: 4px;
-            max-width: 90%;
-            margin: 10px auto;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-        }
-    
-        .instruction i {
-            color: #ffcc00; /* YouTube-like warning icon color */
-            margin-right: 6px;
-        }
-    
-        .instruction a {
-            color: #1e90ff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    
-        .instruction a:hover {
-            text-decoration: underline;
-        }
-    </style>
 
     <div class="main-container">
         <form method="GET" id="series-form">
-                <aside class="sidebar" id="sidebar">
-                    <button id="installButton" class="install-button" style="display: none;">Install App</button>
-                    <hr>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="south-park" id="south-park" onchange="this.form.submit();">
-                        <label for="south-park">South Park</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="american-dad" id="american-dad" onchange="this.form.submit();">
-                        <label for="american-dad">American Dad</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="family-guy" id="family-guy" onchange="this.form.submit();">
-                        <label for="family-guy">Family Guy</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="rick-and-morty" id="rick-and-morty" onchange="this.form.submit();">
-                        <label for="rick-and-morty">Rick and Morty</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="bojack-horseman" id="bojack-horseman" onchange="this.form.submit();">
-                        <label for="bojack-horseman">BoJack Horseman</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="the-simpsons" id="the-simpsons" onchange="this.form.submit();">
-                        <label for="the-simpsons">The Simpsons</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="futurama" id="futurama" onchange="this.form.submit();">
-                        <label for="futurama">Futurama</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="bobs-burgers" id="bobs-burgers" onchange="this.form.submit();">
-                        <label for="bobs-burgers">Bob's Burgers</label>
-                    </div>
-                    <hr>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="friends" id="friends" onchange="this.form.submit();">
-                        <label for="friends">Friends</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="the-office" id="the-office" onchange="this.form.submit();">
-                        <label for="the-office">The Office</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="how-i-met-your-mother" id="how-i-met-your-mother" onchange="this.form.submit();">
-                        <label for="how-i-met-your-mother">How I Met Your Mother</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="mr-bean" id="mr-bean" onchange="this.form.submit();">
-                        <label for="mr-bean">Mr. Bean</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="big-bang-theory" id="big-bang-theory" onchange="this.form.submit();">
-                        <label for="big-bang-theory">Big Bang Theory</label>
-                    </div>
-                    <hr>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="dexters-laboratory" id="dexters-laboratory" onchange="this.form.submit();">
-                        <label for="dexters-laboratory">Dexter's Laboratory</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="johnny-bravo" id="johnny-bravo" onchange="this.form.submit();">
-                        <label for="johnny-bravo">Johnny Bravo</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="cow-and-chicken" id="cow-and-chicken" onchange="this.form.submit();">
-                        <label for="cow-and-chicken">Cow and Chicken</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="ed-edd-n-eddy" id="ed-edd-n-eddy" onchange="this.form.submit();">
-                        <label for="ed-edd-n-eddy">Ed, Edd n Eddy</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="courage-the-cowardly-dog" id="courage-the-cowardly-dog" onchange="this.form.submit();">
-                        <label for="courage-the-cowardly-dog">Courage the Cowardly Dog</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="grim-adventures-billy-mandy" id="grim-adventures-billy-mandy" onchange="this.form.submit();">
-                        <label for="grim-adventures-billy-mandy">The Grim Adventures of Billy & Mandy</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="codename-kids-next-door" id="codename-kids-next-door" onchange="this.form.submit();">
-                        <label for="codename-kids-next-door">Codename: Kids Next Door</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="spongebob-squarepants" id="spongebob-squarepants" onchange="this.form.submit();">
-                        <label for="spongebob-squarepants">SpongeBob SquarePants</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="spongebob-squarepants" id="spongebob-squarepants" onchange="this.form.submit();">
-                        <label for="spongebob-squarepants">SpongeBob SquarePants</label>
-                    </div>
-                    <div class="checkbox-label">
-                        <input type="checkbox" name="series" value="tom-and-jerry" id="tom-and-jerry" onchange="this.form.submit();">
-                        <label for="tom-and-jerry">Tom and Jerry Tales</label>
-                    </div>
-                </aside>
+            <aside class="sidebar" id="sidebar">
+                <button id="installButton" class="install-button" style="display: none;">Install App</button>
+                <hr>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="south-park" id="south-park" onchange="this.form.submit();">
+                    <label for="south-park">South Park</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="american-dad" id="american-dad" onchange="this.form.submit();">
+                    <label for="american-dad">American Dad</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="family-guy" id="family-guy" onchange="this.form.submit();">
+                    <label for="family-guy">Family Guy</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="rick-and-morty" id="rick-and-morty" onchange="this.form.submit();">
+                    <label for="rick-and-morty">Rick and Morty</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="bojack-horseman" id="bojack-horseman" onchange="this.form.submit();">
+                    <label for="bojack-horseman">BoJack Horseman</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="the-simpsons" id="the-simpsons" onchange="this.form.submit();">
+                    <label for="the-simpsons">The Simpsons</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="futurama" id="futurama" onchange="this.form.submit();">
+                    <label for="futurama">Futurama</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="bobs-burgers" id="bobs-burgers" onchange="this.form.submit();">
+                    <label for="bobs-burgers">Bob's Burgers</label>
+                </div>
+                <hr>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="friends" id="friends" onchange="this.form.submit();">
+                    <label for="friends">Friends</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="the-office" id="the-office" onchange="this.form.submit();">
+                    <label for="the-office">The Office</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="how-i-met-your-mother" id="how-i-met-your-mother" onchange="this.form.submit();">
+                    <label for="how-i-met-your-mother">How I Met Your Mother</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="mr-bean" id="mr-bean" onchange="this.form.submit();">
+                    <label for="mr-bean">Mr. Bean</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="big-bang-theory" id="big-bang-theory" onchange="this.form.submit();">
+                    <label for="big-bang-theory">Big Bang Theory</label>
+                </div>
+                <hr>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="dexters-laboratory" id="dexters-laboratory" onchange="this.form.submit();">
+                    <label for="dexters-laboratory">Dexter's Laboratory</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="johnny-bravo" id="johnny-bravo" onchange="this.form.submit();">
+                    <label for="johnny-bravo">Johnny Bravo</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="cow-and-chicken" id="cow-and-chicken" onchange="this.form.submit();">
+                    <label for="cow-and-chicken">Cow and Chicken</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="ed-edd-n-eddy" id="ed-edd-n-eddy" onchange="this.form.submit();">
+                    <label for="ed-edd-n-eddy">Ed, Edd n Eddy</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="courage-the-cowardly-dog" id="courage-the-cowardly-dog" onchange="this.form.submit();">
+                    <label for="courage-the-cowardly-dog">Courage the Cowardly Dog</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="grim-adventures-billy-mandy" id="grim-adventures-billy-mandy" onchange="this.form.submit();">
+                    <label for="grim-adventures-billy-mandy">The Grim Adventures of Billy & Mandy</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="codename-kids-next-door" id="codename-kids-next-door" onchange="this.form.submit();">
+                    <label for="codename-kids-next-door">Codename: Kids Next Door</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="spongebob-squarepants" id="spongebob-squarepants" onchange="this.form.submit();">
+                    <label for="spongebob-squarepants">SpongeBob SquarePants</label>
+                </div>
+                <div class="checkbox-label">
+                    <input type="checkbox" name="series" value="tom-and-jerry" id="tom-and-jerry" onchange="this.form.submit();">
+                    <label for="tom-and-jerry">Tom and Jerry Tales</label>
+                </div>
+            </aside>
         </form>
 
         <div class="container">
             {% if ismoviesearched == 'yes' %}
             <div class="video-card2">
                 <iframe 
-                id="video-frame" 
-                src="{{ searchedmovieurl }}" 
-                frameborder="0" 
-                referrerpolicy="no-referrer" 
-                allow="fullscreen; accelerometer; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen
-                referrerpolicy="no-referrer"
-                {% if sandbox_attr %}sandbox="{{ sandbox_attr }}"{% endif %}></iframe>
+                    id="video-frame" 
+                    src="{{ searchedmovieurl }}" 
+                    frameborder="0" 
+                    referrerpolicy="no-referrer" 
+                    allow="fullscreen; accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    {% if sandbox_attr %}sandbox="{{ sandbox_attr }}"{% endif %}></iframe>
             </div>
             {% else %}
             {% for video in videourl %}
             <div class="video-card">
                 <iframe 
-                id="video-frame" 
-                src="{{ video }}" 
-                frameborder="0" 
-                referrerpolicy="no-referrer" 
-                allow="fullscreen; accelerometer; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen
-                referrerpolicy="no-referrer"
-                {% if sandbox_attr %}sandbox="{{ sandbox_attr }}"{% endif %}></iframe>
+                    id="video-frame-{{ forloop.counter }}" 
+                    src="{{ video }}" 
+                    frameborder="0" 
+                    referrerpolicy="no-referrer" 
+                    allow="fullscreen; accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    {% if sandbox_attr %}sandbox="{{ sandbox_attr }}"{% endif %}></iframe>
             </div>
             {% endfor %}
             {% endif %}
         </div>
     </div>
 
+    <!-- Comment Icon -->
+    <div class="comment-icon-container">
+        <div class="comment-icon" onclick="toggleCommentSection()">
+            <i class="fas fa-comment"></i>
+        </div>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comment-section" id="commentSection">
+        <div class="comment-box">
+            <div class="comment-box-header">
+                <h3>Comments</h3>
+                <button class="close-comment" onclick="toggleCommentSection()">×</button>
+            </div>
+            <div class="comment-list" id="commentList">
+                {% for comment in comments %}
+                <div class="comment{% if comment.parent %} reply{% endif %}" id="comment-{{ comment.id }}">
+                    <div class="comment-user">Anonymous</div>
+                    <div class="comment-text">{{ comment.text }}</div>
+                    <div class="comment-time">{{ comment.created_at|date:"Y-m-d H:i:s" }}</div>
+                    <div class="comment-actions">
+                        <button onclick="toggleReplyInput('{{ comment.id }}')">Reply</button>
+                    </div>
+                    <div class="reply-input-container" id="reply-{{ comment.id }}">
+                        <input type="text" class="comment-input" placeholder="Add a reply..." data-parent-id="{{ comment.id }}">
+                        <button class="comment-submit" onclick="postComment('{{ comment.id }}')">Post</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="comment-input-container">
+                <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment...">
+                <button class="comment-submit" onclick="postComment()">Post</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>This website randomly selects and displays an episode from various sitcoms. By default, it only includes episodes from Family Guy, South Park, and American Dad.
-            <br>
-            You can customize the random episode selection by enabling the toggle and choosing your favorite sitcom. It will then display a random episode from the selected sitcom.
-        </p>
+        This site does not host any video content. All content is embedded from third-party sources via API. For DMCA complaints, contact the original host.
+        <br>
+        Please check <a href="{% url 'terms' %}"> Terms & Condition</a> For more details.
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const iframe = document.getElementById('video-frame');
-            
-            // Listen for events in the iframe (if applicable)
-            iframe.onload = function () {
-                const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
-                
-                // Ensure PiP is triggered on a user interaction
-                iframeWindow.addEventListener('click', function () {
-                    // Check if the PiP API is available
-                    if (document.pictureInPictureEnabled) {
-                        // Attempt to request PiP
-                        iframe.requestPictureInPicture().catch(error => {
-                            console.error('Error entering Picture-in-Picture:', error);
-                        });
-                    } else {
-                        console.log('Picture-in-Picture is not available.');
-                    }
-                });
-            };
-        });
-    </script>
-
-    
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const iframes = document.querySelectorAll('iframe');
-        
+            const iframes = document.querySelectorAll('iframe[id^="video-frame"]');
             iframes.forEach(iframe => {
                 iframe.onload = function () {
                     try {
                         const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
-        
-                        // Only apply popup blocking if NOT an iPhone
                         if (!navigator.userAgent.includes("iPhone")) {
                             iframeWindow.open = function () {
                                 console.log("Popup attempt blocked.");
-                                return null; // Prevent popups from opening
+                                return null;
                             };
+                        }
+                        iframeWindow.document.addEventListener('click', function(event) {
+                            event.preventDefault();
+                        }, true);
+                        if (document.pictureInPictureEnabled) {
+                            iframeWindow.addEventListener('click', function () {
+                                iframe.requestPictureInPicture().catch(error => {
+                                    console.error('Error entering Picture-in-Picture:', error);
+                                });
+                            });
                         }
                     } catch (error) {
                         console.warn("Could not access iframe content:", error);
@@ -601,155 +746,130 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.onload = function () {
-                    const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
-        
-                    // Block opening new windows
-                    iframeWindow.open = function () {
-                        console.log("Popup attempt blocked.");
-                        return null;
-                    };
-        
-                    // Block any pop-up attempts through events like click
-                    iframeWindow.document.addEventListener('click', function(event) {
-                        event.preventDefault();
-                    }, true);
-                };
-            });
-        });
-    </script>
-
-
-    <script>
-        // Check if the browser supports the screen orientation API
         if (screen.orientation) {
-          const videoFrame = document.getElementById("video-frame");
-      
-          // Listen for fullscreen change events (when the video is played or closed)
-          document.addEventListener('fullscreenchange', handleOrientationChange);
-      
-          function handleOrientationChange() {
-            if (document.fullscreenElement === videoFrame) {
-              // When the video goes fullscreen, switch to landscape
-              screen.orientation.lock('landscape').catch(function (error) {
-                console.error('Orientation lock failed: ', error);
-              });
-            } else {
-              // When the video is closed, switch back to portrait
-              screen.orientation.lock('portrait').catch(function (error) {
-                console.error('Orientation lock failed: ', error);
-              });
-            }
-          }
-        } else {
-          console.log("Screen orientation API is not supported.");
-        }
-      </script>
-      
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.onload = function () {
-                    const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
-                    iframeWindow.open = function () {
-                        console.log("Popup attempt blocked.");
-                        return null; // Prevent any new windows from being opened
-                    };
-                };
+            const videoFrame = document.querySelector('iframe[id^="video-frame"]');
+            document.addEventListener('fullscreenchange', function () {
+                if (document.fullscreenElement === videoFrame) {
+                    screen.orientation.lock('landscape').catch(error => {
+                        console.error('Orientation lock failed: ', error);
+                    });
+                } else {
+                    screen.orientation.lock('portrait').catch(error => {
+                        console.error('Orientation lock failed: ', error);
+                    });
+                }
             });
-        });
-    </script>
+        }
 
-    <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('active');
         }
-        
-        // Automatically close the sidebar on larger screens
+
         window.addEventListener('resize', function() {
             const sidebar = document.getElementById('sidebar');
             if (window.innerWidth > 768) {
                 sidebar.classList.remove('active');
             }
         });
-    </script>
 
+        function toggleCommentSection() {
+            const commentSection = document.getElementById('commentSection');
+            commentSection.classList.toggle('active');
+        }
 
+        function toggleReplyInput(commentId) {
+            const replyContainer = document.getElementById(`reply-${commentId}`);
+            replyContainer.classList.toggle('active');
+        }
 
-<script>
-    self.addEventListener('install', (event) => {
-        event.waitUntil(
-            caches.open(CACHE_NAME)
-                .then((cache) => {
-                    return Promise.all(urlsToCache.map(url => {
-                        return fetch(url)
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Network response was not ok');
-                                }
-                                return cache.add(url);
-                            });
-                    }));
+        function postComment(parentId = null) {
+            const commentInput = parentId ? 
+                document.querySelector(`#reply-${parentId} .comment-input`) : 
+                document.getElementById('commentInput');
+            const commentText = commentInput.value.trim();
+            if (!commentText) return;
+
+            fetch('{% url "post_comment" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({
+                    text: commentText,
+                    parent_id: parentId
                 })
-                .catch((error) => {
-                    console.error('Caching failed:', error);
-                })
-        );
-    });
-</script>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        let deferredPrompt;
-        const installButton = document.getElementById('installButton');
-    
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installButton.style.display = 'block';
-        });
-    
-        installButton.addEventListener('click', () => {
-            installButton.style.display = 'none';
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const commentList = document.getElementById('commentList');
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = parentId ? 'comment reply' : 'comment';
+                    commentDiv.id = `comment-${data.comment_id}`;
+                    commentDiv.innerHTML = `
+                        <div class="comment-user">Anonymous</div>
+                        <div class="comment-text">${commentText}</div>
+                        <div class="comment-time">${data.created_at}</div>
+                        <div class="comment-actions">
+                            <button onclick="toggleReplyInput('${data.comment_id}')">Reply</button>
+                        </div>
+                        <div class="reply-input-container" id="reply-${data.comment_id}">
+                            <input type="text" class="comment-input" placeholder="Add a reply..." data-parent-id="${data.comment_id}">
+                            <button class="comment-submit" onclick="postComment('${data.comment_id}')">Post</button>
+                        </div>
+                    `;
+                    if (parentId) {
+                        document.getElementById(`comment-${parentId}`).appendChild(commentDiv);
+                    } else {
+                        commentList.appendChild(commentDiv);
+                    }
+                    commentInput.value = '';
+                    if (parentId) {
+                        document.getElementById(`reply-${parentId}`).classList.remove('active');
+                    }
                 } else {
-                    console.log('User dismissed the A2HS prompt');
+                    alert('Error posting comment: ' + data.message);
                 }
-                deferredPrompt = null;
-            });
-        });
-    });
-</script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/static/service-worker.js').then((registration) => {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                }).catch((error) => {
-                    console.error('Service Worker registration failed:', error);
-                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to post comment.');
             });
         }
-    </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const iframe = document.getElementById('video-frame');
-            
-            if (!iframe) return;
-        
-            let audioContext;
-            let gainNode;
-        })
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let deferredPrompt;
+            const installButton = document.getElementById('installButton');
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installButton.style.display = 'block';
+            });
+            installButton.addEventListener('click', () => {
+                installButton.style.display = 'none';
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    console.log(choiceResult.outcome === 'accepted' ? 
+                        'User accepted the A2HS prompt' : 
+                        'User dismissed the A2HS prompt');
+                    deferredPrompt = null;
+                });
+            });
+        });
     </script>
-        
+</body>
+</html>
