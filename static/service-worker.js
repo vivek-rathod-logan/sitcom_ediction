@@ -1,17 +1,19 @@
-const CACHE_NAME = 'sitcom-addiction-cache-v2';
+const CACHE_NAME = 'sitcom-addiction-cache-v3';
 const STATIC_ASSETS = [
+    '/',
+    '/index.html',
+    '/offline.html',
     '/static/manifest.json',
-    'https://e7.pngegg.com/pngimages/741/810/png-clipart-limb-finger-arm-thumb-joint-family-guy-child-hand-thumbnail.png',
+    '/static/images/icon-192x192.png',
+    '/static/images/icon-512x512.png',
     '/static/images/thumbnail.jpg',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css'
 ];
 
-// Dynamic URLs that should always fetch from network first
 const DYNAMIC_URLS = [
-    '/',
     '/post-comment/',
     '/?searchtext=',
-    '/terms/',
+    '/terms/'
 ];
 
 // Install event: Cache static assets
@@ -45,21 +47,22 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     const requestUrl = new URL(event.request.url);
 
-    // Check if the request is for a dynamic URL
+    // Handle dynamic URLs with network-first strategy
     if (DYNAMIC_URLS.some(url => requestUrl.pathname.startsWith(url) || event.request.url.includes(url))) {
-        // Network-first strategy for dynamic content
         event.respondWith(
             fetch(event.request)
                 .then((networkResponse) => {
-                    // Cache the response for future offline use
+                    if (!networkResponse || networkResponse.status !== 200) {
+                        throw new Error('Network response was not ok');
+                    }
                     return caches.open(CACHE_NAME).then((cache) => {
                         cache.put(event.request, networkResponse.clone());
                         return networkResponse;
                     });
                 })
                 .catch(() => {
-                    // Fallback to cache if offline
-                    return caches.match(event.request);
+                    return caches.match(event.request)
+                        .then((response) => response || caches.match('/offline.html'));
                 })
         );
     } else {
@@ -68,7 +71,9 @@ self.addEventListener('fetch', (event) => {
             caches.match(event.request)
                 .then((response) => {
                     return response || fetch(event.request).then((networkResponse) => {
-                        // Cache new static assets
+                        if (!networkResponse || networkResponse.status !== 200) {
+                            throw new Error('Network response was not ok');
+                        }
                         return caches.open(CACHE_NAME).then((cache) => {
                             cache.put(event.request, networkResponse.clone());
                             return networkResponse;
@@ -76,7 +81,10 @@ self.addEventListener('fetch', (event) => {
                     });
                 })
                 .catch(() => {
-                    console.error('Fetch failed for:', event.request.url);
+                    if (event.request.mode === 'navigate') {
+                        return caches.match('/offline.html');
+                    }
+                    return null;
                 })
         );
     }

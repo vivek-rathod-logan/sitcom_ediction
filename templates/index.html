@@ -4,8 +4,6 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
     <title>SITCOM-ADDICTION | Best Randomized Sitcom Videos</title>
@@ -14,7 +12,7 @@
     <meta name="author" content="Sitcom Addiction">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph Meta Tags (For Facebook & Social Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="SITCOM-ADDICTION | Best Sitcom Videos & Clips">
     <meta property="og:description" content="Watch the best sitcoms like Friends, The Office, Family Guy, and more. Stream high-quality clips and enjoy endless comedy!">
     <meta property="og:image" content="{% static 'images/thumbnail.jpg' %}">
@@ -25,19 +23,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SITCOM-ADDICTION | Best Sitcom Videos & Clips">
     <meta name="twitter:description" content="Watch the best sitcoms like Friends, The Office, Family Guy, and more. Stream high-quality clips and enjoy endless comedy!">
-    <metaTema name="twitter:image" content="{% static 'images/thumbnail.jpg' %}">
+    <meta name="twitter:image" content="{% static 'images/thumbnail.jpg' %}">
 
-    <!-- Canonical Tag (Avoid Duplicate Content Issues) -->
+    <!-- Canonical Tag -->
     <link rel="canonical" href="https://sitcom-addiction.com">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://ia800305.us.archive.org/33/items/fg-free-v-1.0.0-clutch-1.3/iTunesArtwork%20(9)%2012.png">
+    <link rel="icon" type="image/png" href="{% static 'images/icon-192x192.png' %}">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <link rel="manifest" href="{% static 'manifest.json' %}">
 
-    <!-- Preload Important Assets for Faster Load -->
+    <!-- Preload Important Assets -->
     <link rel="preload" as="image" href="{% static 'images/thumbnail.jpg' %}">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
@@ -48,7 +46,7 @@
         "@type": "VideoObject",
         "name": "Best Sitcom Clips",
         "description": "Stream the best sitcom moments including Friends, The Office, Family Guy, and more.",
-        "thumbnailUrl": "https://ia800305.us.archive.org/33/items/fg-free-v-1.0.0-clutch-1.3/iTunesArtwork%20(9)%2012.png",
+        "thumbnailUrl": "{% static 'images/thumbnail.jpg' %}",
         "uploadDate": "2024-02-15T08:00:00+00:00",
         "contentUrl": "https://sitcom-addiction.com",
         "embedUrl": "https://sitcom-addiction.com/embed",
@@ -57,7 +55,7 @@
             "name": "Sitcom Addiction",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://ia800305.us.archive.org/33/items/fg-free-v-1.0.0-clutch-1.3/iTunesArtwork%20(9)%2012.png"
+                "url": "{% static 'images/icon-192x192.png' %}"
             }
         }
     }
@@ -352,7 +350,6 @@
         .instruction a:hover {
             text-decoration: underline;
         }
-        /* Comment Icon Styles */
         .comment-icon-container {
             position: fixed;
             bottom: 20px;
@@ -376,7 +373,6 @@
             background-color: #cc0000;
             transform: scale(1.1);
         }
-        /* Comment Section Styles */
         .comment-section {
             display: none;
             position: fixed;
@@ -754,9 +750,7 @@
                         console.error('Orientation lock failed: ', error);
                     });
                 } else {
-                    screen.orientation.lock('portrait').catch(error => {
-                        console.error('Orientation lock failed: ', error);
-                    });
+                    screen.orientation.unlock();
                 }
             });
         }
